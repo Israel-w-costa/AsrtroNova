@@ -19,14 +19,10 @@ body {
     flex-direction: column;
 }
 
-header {
-    position: fixed;
+nav {
     top: 0;
     left: 0;
     z-index: 1000;
-}
-
-nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -119,12 +115,20 @@ footer {
 }
 
 @media (max-width: 950px) {
+    body {
+        padding-top: 18rem;
+    }
+
     nav {
         flex-direction: column;
         margin: 1rem;
     }
 
     nav a {
+        margin: 0.5rem 0;
+    }
+
+    nav h1 {
         margin: 0.5rem 0;
     }
 
