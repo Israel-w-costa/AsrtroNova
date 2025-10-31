@@ -1,0 +1,164 @@
+/* card info */
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 20%; */
+    gap: 1.5rem;
+    /* margin: 0 auto; */
+}
+
+.info_card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 1rem;
+    min-width: 13.5rem;
+    height: 6rem;
+}
+
+.info_card>div>span {
+    font-size: 0.8rem;
+    text-wrap: nowrap;
+}
+
+.info_card>div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.info_card>div svg {
+    margin-left: auto;
+}
+
+.info_card>span {
+    font-size: 2rem;
+}
+
+.info_calendar,
+.info_users,
+.info_mail,
+.info_clock {
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    min-width: 1.5rem;
+    height: 1.5rem;
+}
+
+.info_calendar {
+    background-color: aqua;
+}
+
+.info_users {
+    background-color: pink;
+}
+
+.info_mail {
+    background-color: greenyellow;
+}
+
+.info_clock {
+    background-color: orange;
+}
+
+/* formulario de criaçao de evento */
+
+#form {
+    display: flex;
+    flex-direction: column;
+    background:rgba(20,25,50,0.85);
+    color: white;
+    border:1px solid #00bfff;
+    border-radius: 1rem;
+    width: 60%;
+    margin: 4rem auto;
+    padding: 1.5rem;
+    gap: 1.5rem;
+}
+
+#form input,
+#form label,
+#form select {
+    width: 85%;
+    margin: 0 auto;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+#form input {
+    background: rgba(97, 0, 0, 0.05);
+     border:1px solid #00bfff;
+    color: gray;
+}
+
+#form input::placeholder {
+    color: gray;
+}
+
+#form input:focus {
+    border: none;
+    outline: 2px solid #00bfff;
+    background: rgba(97, 0, 0, 0.05);
+}
+
+#form label {
+    font-size: 1rem;
+}
+
+.form-infor {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-infor-group1>div,
+.form-infor-group2>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-infor-group2>div>input,
+.form-infor-group1>div>input {
+    width: 20rem !important;
+    color: gray;
+}
+
+.form-infor-group2>div>select,
+.form-infor-group1>div>select {
+    background: rgba(97, 0, 0, 0.05);
+    width: 20rem !important;
+    border:1px solid #00bfff !important;
+    color: gray;
+}
+
+.form-infor-group2>div>label,
+.form-infor-group1>div>label {
+    margin-right: 2.5rem !important;
+}
+
+.form-button {
+    display: inline-block;
+    text-align: center;
+}
+
+.form-button>button:nth-child(1){background-color: rgb(255, 47, 47);}
+.form-button>button:nth-child(2){background-color: #00bfffe0;}
+
+.form-button>button:nth-child(1):hover{background-color: rgb(252, 79, 79);}
+.form-button>button:nth-child(2):hover{background-color: #45cffde0;}
+
+.form-button>button {
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 18rem;
+    cursor: pointer;
+}
+
