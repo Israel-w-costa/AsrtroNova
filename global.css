@@ -1,10 +1,23 @@
 /*  PALETA DE CORES  */
-.fonte_azul_claro { color: #3AF7F7; }
-.fonte_azul_escuro { color: #6B8BFF; }
-.fonte_lias { color: #C05FFF; }
-.fonte_branco { color: #DBE9F4; }
+.fonte_azul_claro {
+    color: #3AF7F7;
+}
 
-.fonte_titulos { font-family: 'Orbitron', Arial, Helvetica, sans-serif; }
+.fonte_azul_escuro {
+    color: #6B8BFF;
+}
+
+.fonte_lias {
+    color: #C05FFF;
+}
+
+.fonte_branco {
+    color: #DBE9F4;
+}
+
+.fonte_titulos {
+    font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+}
 
 body {
     color: #DBE9F4;
@@ -30,7 +43,7 @@ nav {
     margin-inline-end: 12rem;
 }
 
-nav > :nth-child(2) {
+nav> :nth-child(2) {
     margin-right: auto;
     margin-left: 2rem;
 }
@@ -47,7 +60,9 @@ nav a {
     margin-left: 2rem;
 }
 
-a:hover { color: #3AF7F7; }
+a:hover {
+    color: #3AF7F7;
+}
 
 footer {
     background-color: #050510CC;
@@ -68,7 +83,7 @@ footer {
     margin: 0 auto;
 }
 
-.coluna_rodape {    
+.coluna_rodape {
     flex: 1;
     min-width: 250px;
 }
@@ -142,3 +157,121 @@ footer {
         min-width: 100%;
     }
 }
+
+.cardbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
+.cardbox {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.cardbox:hover,
+.btn-cadEvento:hover {
+    transform: scale(1.05);
+}
+
+.cadEvento {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.btn-cadEvento {
+    background-color: #6B8BFF;
+    border-radius: 8px;
+    border: 2px solid #6462f5;
+    transition: transform 0.3s ease;
+    padding: 15px;
+    color: #DBE9F4;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.btn-cadEvento button {
+    text-decoration: none;
+    color: #DBE9F4;
+}
+
+.event-info {
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .cardbox {
+        width: 90%;
+    }
+
+    .btn-cadEvento {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+.btn-inscrever {
+    background-color: #6B8BFF;
+    border-radius: 8px;
+    border: 2px solid #6462f5;
+    padding: 10px;
+    color: #DBE9F4;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.btn-EnviarEvento {
+    background-color: #54ad88;
+    border-radius: 8px;
+    border: 2px solid #37994c;
+    padding: 10px;
+    color: #DBE9F4;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.btn-CancelarEnviarEvento {
+    background-color: #bb3b3b;
+    border-radius: 8px;
+    border: 2px solid #922d2d;
+    padding: 10px;
+    color: #DBE9F4;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.event-info input {
+    margin: 2px;
+    background-color: rgba(0, 0, 255, 0.479);
+    border-radius: 8px;
+    padding: 4px;
+    /* background: none; */
+    border: none;
+    color: #DBE9F4;
+}
+
+.inline{
+    display: inline-block;
+}
+
+/* .cardbox img{
+} */
