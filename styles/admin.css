@@ -113,6 +113,11 @@
     background: rgba(97, 0, 0, 0.05);
 }
 
+#form input.filled {
+  background-color: white;
+  color: black;
+}
+
 #form label {
     font-size: 1rem;
 }
