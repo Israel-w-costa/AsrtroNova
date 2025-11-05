@@ -17,13 +17,10 @@
     padding: 1rem;
 }
 
-
 .info_card {
   flex: 1 1 0; 
   min-width: 14rem; 
 }
-
-
 
 .info_card>div>span {
     font-size: 0.8rem;
@@ -76,16 +73,16 @@
 #form {
     display: flex;
     flex-direction: column;
-    background:rgba(20,25,50,0.85);
-    color: white;
-    border:1px solid #00bfff;
+    background: #141622; /* ALTERADO */
+    color: #DBE9F4; /* ALTERADO */
+    border: 1px solid #3af7f7; /* ALTERADO */
     border-radius: 1rem;
     width: 45%;
     margin: 4rem auto;
     padding: 2rem;
     gap: 2rem;
+    box-shadow: 0 0 8px rgba(58, 247, 247, 0.2); /* ALTERADO */
 }
-
 
 #form input,
 #form label,
@@ -98,23 +95,24 @@
 }
 
 #form input {
-    background: rgba(97, 0, 0, 0.05);
-     border:1px solid #00bfff;
-    color: gray;
+    background: rgba(255, 255, 255, 0.05); /* ALTERADO */
+    border: 1px solid #3af7f7; /* ALTERADO */
+    color: #DBE9F4; /* ALTERADO */
 }
 
 #form input::placeholder {
-    color: gray;
+    color: #a0b4c7; /* ALTERADO */
 }
 
 #form input:focus {
     border: none;
-    outline: 2px solid #00bfff;
-    background: rgba(97, 0, 0, 0.05);
+    outline: 2px solid #3af7f7; /* ALTERADO */
+    background: rgba(255, 255, 255, 0.08); /* ALTERADO */
 }
 
 #form label {
     font-size: 1rem;
+    color: #DBE9F4; /* ALTERADO */
 }
 
 .form-infor {
@@ -132,15 +130,15 @@
 .form-infor-group2>div>input,
 .form-infor-group1>div>input {
     width: 12rem !important;
-    color: gray;
+    color: #DBE9F4; /* ALTERADO */
 }
 
 .form-infor-group2>div>select,
 .form-infor-group1>div>select {
-    background: rgba(97, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.05); /* ALTERADO */
     width: 12rem !important;
-    border:1px solid #00bfff !important;
-    color: gray;
+    border: 1px solid #3af7f7 !important; /* ALTERADO */
+    color: #DBE9F4; /* ALTERADO */
 }
 
 .form-infor-group2>div>label,
@@ -155,11 +153,11 @@
     
 }
 
-.form-button>button:nth-child(1){background-color: rgb(255, 47, 47);}
-.form-button>button:nth-child(2){background-color: #00bfffe0;}
+.form-button>button:nth-child(1){background: linear-gradient(90deg, #9246FF, #00C9FF);} /* ALTERADO */
+.form-button>button:nth-child(2){background: linear-gradient(90deg, #00C9FF, #9246FF);} /* ALTERADO */
 
-.form-button>button:nth-child(1):hover{background-color: rgb(252, 79, 79);}
-.form-button>button:nth-child(2):hover{background-color: #45cffde0;}
+.form-button>button:nth-child(1):hover{background: linear-gradient(90deg, #00C9FF, #9246FF);} /* ALTERADO */
+.form-button>button:nth-child(2):hover{background: linear-gradient(90deg, #9246FF, #00C9FF);} /* ALTERADO */
 
 .form-button>button {
     font-size: 1rem;
@@ -171,6 +169,7 @@
     width: 18rem;
     cursor: pointer;
 }
+
 
 .table_button {
     display: flex;
@@ -210,7 +209,6 @@
     height: 1rem;
 } 
 
-
 table {
   width: 80%;
   border-collapse: collapse;
@@ -227,11 +225,12 @@ caption {
 }
 
 thead {
-  background-color: #2a2f4a;
+  background-color: #1b1e2e; /* ALTERADO */
+  border-bottom: 1px solid #3af7f7; /* ALTERADO */
 }
 
 th {
-  color: #e0e6ff;
+  color: #DBE9F4; /* ALTERADO */
   text-align: left;
   padding: 0.9rem 1rem;
   font-weight: 600;
@@ -240,18 +239,18 @@ th {
 }
 
 tbody tr {
-  background-color: #141a33;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #141622; /* ALTERADO */
+  border-bottom: 1px solid rgba(58, 247, 247, 0.15); /* ALTERADO */
 }
 
 tbody tr:hover {
-  background-color: rgba(108, 99, 255, 0.1);
+  background-color: rgba(58, 247, 247, 0.08); /* ALTERADO */
   transition: 0.3s;
 }
 
 td {
   padding: 0.9rem 1rem;
-  color: #d4d8e8;
+  color: #DBE9F4; /* ALTERADO */
   font-size: 0.9rem;
 }
 
@@ -259,16 +258,18 @@ td {
 .table_events {display: block;}
 
 .deletebtn {
-    background-color: #2a2f4a;
+    background: linear-gradient(90deg, #9246FF, #00C9FF); /* ALTERADO */
     color: white;
     padding: 0.5rem;
     width: 6rem;
     border-radius: 0.2rem;
+    border: none; /* ALTERADO */
     cursor: pointer;
+    transition: 0.3s; /* ALTERADO */
 }
 
 .deletebtn:hover {
-    background-color: #363a54;
+    background: linear-gradient(90deg, #00C9FF, #9246FF); /* ALTERADO */
 }
 
 @media (max-width:992px) {
