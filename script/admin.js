@@ -22,7 +22,6 @@ form.addEventListener("submit", (e) => {
     let formEvent = {};
 
     valueEvent++;
-    formEvent = { ...formEvent, id: valueEvent };
 
     const formValues = form.querySelectorAll("input, select");
 
