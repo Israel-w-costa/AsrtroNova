@@ -127,7 +127,7 @@
             <div>
                 <label for="eventParticipants">Quantidade *</label>
                 <input type="number" name="eventParticipants" id="eventParticipants"
-                    aria-label="Quantidade de participantes" value="1" min="1" max="100" required>
+                    aria-label="Quantidade de participantes" value="0" min="1" max="100" required>
             </div>
             <div>
                 <label for="place">Local *</label>
@@ -148,6 +148,67 @@
             <button type="submit">Enviar</button>
         </div>
     </form>
+
+    <section class="table">
+        <div>
+            <button type="button">Eventos</button>
+            <button type="button">Vendas</button>
+            <button type="button">Agendamentos</button>
+        </div>
+        <div class="table_events">
+            <table>
+                <caption>Gerenciado de eventos</caption>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Categoria</th>
+                    <th>Participantes</th>
+                    <th>Editar</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr id="table_row">
+            </tr>
+            </tbody>
+            </table>
+        </div>
+          <div class="container_table table_sale ">
+            <table>
+                <caption>Gerenciado de vendas</caption>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Categoria</th>
+                    <th>Participantes</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+          <div class="container_table table_visit">
+            <table>
+                <caption>Gerenciado de agendamentos</caption>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Categoria</th>
+                    <th>Participantes</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+
+    </section>
     <footer>
         <div class="container_rodape">
             <div class="coluna_rodape">

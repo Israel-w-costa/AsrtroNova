@@ -2,11 +2,11 @@
 
 .info {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    /* width: 20%; */
-    gap: 1.5rem;
-    /* margin: 0 auto; */
+    gap: 2rem;
+    margin: 0 auto;
 }
 
 .info_card {
@@ -15,9 +15,15 @@
     background: rgba(255, 255, 255, 0.05);
     border-radius: 1rem;
     padding: 1rem;
-    min-width: 13.5rem;
-    height: 6rem;
 }
+
+
+.info_card {
+  flex: 1 1 0; 
+  min-width: 14rem; 
+}
+
+
 
 .info_card>div>span {
     font-size: 0.8rem;
@@ -74,11 +80,12 @@
     color: white;
     border:1px solid #00bfff;
     border-radius: 1rem;
-    width: 60%;
+    width: 45%;
     margin: 4rem auto;
-    padding: 1.5rem;
-    gap: 1.5rem;
+    padding: 2rem;
+    gap: 2rem;
 }
+
 
 #form input,
 #form label,
@@ -112,6 +119,7 @@
 
 .form-infor {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
 }
 
@@ -123,14 +131,14 @@
 
 .form-infor-group2>div>input,
 .form-infor-group1>div>input {
-    width: 20rem !important;
+    width: 12rem !important;
     color: gray;
 }
 
 .form-infor-group2>div>select,
 .form-infor-group1>div>select {
     background: rgba(97, 0, 0, 0.05);
-    width: 20rem !important;
+    width: 12rem !important;
     border:1px solid #00bfff !important;
     color: gray;
 }
@@ -138,6 +146,7 @@
 .form-infor-group2>div>label,
 .form-infor-group1>div>label {
     margin-right: 2.5rem !important;
+    text-wrap: nowrap;
 }
 
 .form-button {
@@ -162,3 +171,150 @@
     cursor: pointer;
 }
 
+.table >div:nth-child(1) {
+    border: 1px solid #00bfff;
+    border-radius: 0.5rem;
+    width: fit-content;
+    margin: 1rem 9rem;
+}
+
+.table > div > button{
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  border-radius: 0.7rem;
+  margin: 2rem auto;
+}
+
+caption {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #aeb8ff;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+thead {
+  background-color: #2a2f4a;
+}
+
+th {
+  color: #e0e6ff;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+tbody tr {
+  background-color: #141a33;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+tbody tr:hover {
+  background-color: rgba(108, 99, 255, 0.1);
+  transition: 0.3s;
+}
+
+td {
+  padding: 0.9rem 1rem;
+  color: #d4d8e8;
+  font-size: 0.9rem;
+}
+
+.table_sale, .table_visit {display: none;}
+.table_events {display: block;}
+
+.deletebtn {
+    background-color: #2a2f4a;
+    color: white;
+    padding: 0.5rem;
+    width: 6rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.deletebtn:hover {
+    background-color: #363a54;
+}
+
+@media (max-width:992px) {
+    body{
+        margin: 0;
+        padding: 0;
+        overflow-x: none;
+    }
+
+    .form-infor {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+    .form-infor-group1>div,
+    .form-infor-group2>div {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-infor-group2>div>input,
+.form-infor-group1>div>input {
+    width: 5rem !important;
+    justify-content: center;
+}
+
+.form-infor-group2>div>select,
+.form-infor-group1>div>select {
+    width: 5rem !important;
+}
+
+.form-infor-group2>div>label,
+.form-infor-group1>div>label {
+    margin-right: 1rem !important;
+}
+
+}
+
+@media (max-width:760px) {
+
+.form-infor-group1>div,
+.form-infor-group2>div {
+    flex-direction: column;
+}
+
+.form-infor-group2>div>input,
+.form-infor-group1>div>input {
+    width: 10rem !important;
+}
+
+.form-infor-group2>div>select,
+.form-infor-group1>div>select {
+    width: 10rem !important;
+}
+
+.form-button>button {
+    padding: 0.5rem;
+    width: 10rem;
+}
+
+
+}
+
+@media (max-width:480px) {
+
+.form-button>button {
+    font-size: 0.8rem;
+    width: 8rem;
+}
+
+
+}
