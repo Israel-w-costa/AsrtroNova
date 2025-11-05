@@ -64,12 +64,11 @@ tablebtn.forEach(table => {
 )
 
 const tbody = document.querySelector("tbody");;
-console.log(tbody)
 
 window.addEventListener("load", () => {
 
     if (storageEvent.length > 0) {
-        storageEvent.forEach(array => {
+        storageEvent.forEach( (array ,index) => {
         
          const table_row = document.createElement("tr");
          
@@ -96,12 +95,19 @@ window.addEventListener("load", () => {
 
          tbody.appendChild(table_row);
 
-         deletebtn.addEventListener("click", e => {
-            const index =  e.target.id;
-            const a =storageEvent.find(event => event.id === index)
-            console.log(index)
+         deletebtn.addEventListener("click", deleteEvent => {
+            const trDeleteEvent = deleteEvent.target.parentElement;
+            const thDeleteEvent = trDeleteEvent.parentElement;
+
+            if (thDeleteEvent.children[0].textContent == storageEvent[index].name && 
+                thDeleteEvent.children[1].textContent == storageEvent[index].date) {
+                console.log("oi")
+            } 
+
+            thDeleteEvent.remove();
+
             
-         })   
+})   
 
 
         })
