@@ -101,7 +101,11 @@ window.addEventListener("load", () => {
 
             if (thDeleteEvent.children[0].textContent == storageEvent[index].name && 
                 thDeleteEvent.children[1].textContent == storageEvent[index].date) {
-                console.log("oi")
+                
+                storageEvent.splice(index,1);
+
+                localStorage.removeItem("event",JSON.stringify(storageEvent));
+
             } 
 
             thDeleteEvent.remove();
