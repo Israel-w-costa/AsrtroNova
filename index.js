@@ -1,56 +1,94 @@
+// Seletores principais
 const loginbtn = document.getElementById("abrirLogin");
+const cadastrabtn = document.getElementById("cadastrabtn");
 const dialog = document.querySelector("dialog");
-
-loginbtn.addEventListener("click", () => dialog.showModal())
-
-
-
+const cadastrarDialog = document.getElementById("cadastro");
 const btnFechar = document.getElementById('btnFechar');
+const btnFecharCadastro = document.getElementById("btnFecharCadastro");
 const login = document.getElementById('login');
-
-loginbtn.onclick = function(){
-    login.showModal();
-}
-
-btnFechar.onclick = function(){
-    login.close();
-}
-
-let dadosUsuario = [
-    {nome: "user", email: "user@user.com", senha: "123"},
-    {nome: "aluno", email: "aluno@aluno.com", senha: "aluno"}
-];
-
+const cadastrobtn = document.getElementById("cadastrobtn");
 const formLogin = document.querySelector('#login form');
 
-formLogin.addEventListener('submit', e => {
-    e.preventDefault();
+let dadosUsuario = [
+  { nome: "admin", email: "admin@admin.com", senha: "123", cpf: "012.743.657-92" },
+  { nome: "aluno", email: "aluno@aluno.com", senha: "aluno", cpf: "012.743.657-91" }
+];
 
-    let msgErro = document.querySelector('.erro');
-    if (msgErro) {
-        login.removeChild(msgErro);
-    }
+function limparErros(container) {
+  const erros = container.querySelectorAll('.erro, .erro-box');
+  erros.forEach(e => e.remove());
+}
 
-    let email = document.getElementById('email').value;
-    let senha = document.getElementById('senha').value;
+function exibirErros(container, mensagens) {
+  const erroBox = document.createElement('div');
+  erroBox.classList.add('erro-box');
+  erroBox.innerHTML = mensagens.map(msg => `<p>${msg}</p>`).join('');
+  container.insertBefore(erroBox, container.firstChild);
+}
 
-    dadosUsuario.forEach( usuario => {
-        if (email === usuario.email && senha === usuario.senha) {
-            sessionStorage.setItem('usuarioLogado', "true");
-            sessionStorage.setItem('nomeUsuario', usuario.nome);
+loginbtn.addEventListener("click", () => login.showModal());
+btnFechar.addEventListener("click", () => login.close());
 
-            window.location.href = "./admin.html";
-        }
-    });
+formLogin.addEventListener('submit', (e) => {
+  e.preventDefault();
+  limparErros(login);
 
-    let usuarioLogado = sessionStorage.getItem('usuarioLogado');
+  const email = document.getElementById('email').value.trim();
+  const senha = document.getElementById('senha').value.trim();
 
-    if (!usuarioLogado) {
-        const erro = document.createElement('p');
-        erro.classList.add('erro');
-        erro.textContent = "Login ou senha Inválido";
-        login.insertBefore(erro, login.firstChild);
-        this.reset();
-    }
+  const usuario = dadosUsuario.find(u => u.email === email && u.senha === senha);
+  const admin = dadosUsuario.find(u => u.email === email && u.senha === senha);
+
+if (admin) {
+  sessionStorage.setItem('usuarioLogado', "admin");
+  window.location.href = "./admin.html";
+} else if (usuario) {
+  sessionStorage.setItem('usuarioLogado', "true");
+  sessionStorage.setItem('nomeUsuario', usuario.nome);
+  window.location.href = "./index.html";
+} else {
+  exibirErros(login, ["Login ou senha inválido."]);
+  e.target.reset();
+}
+})
+
+
+cadastrabtn.addEventListener("click", () => {
+  login.close();
+  cadastrarDialog.showModal();
 });
 
+btnFecharCadastro.addEventListener("click", () => cadastrarDialog.close());
+
+cadastrobtn.addEventListener("submit", (e) => {
+  e.preventDefault();
+  limparErros(cadastrarDialog);
+
+  const nome = document.getElementById("nome").value.trim();
+  const cpf = document.getElementById("cpf").value.trim();
+  const emailCadastro = document.getElementById("emailCadastro").value.trim();
+  const senhaCadastro = document.getElementById("senhaCadastro").value.trim();
+  const confirmaSenha = document.getElementById("confirmaSenha").value.trim();
+
+  const erros = [];
+
+  if (!nome) erros.push("O nome é obrigatório.");
+  if (!cpf || cpf.length !== 14) erros.push("CPF inválido.");
+  if (!emailCadastro.includes("@")) erros.push("E-mail inválido.");
+  if (senhaCadastro.length < 6) erros.push("A senha deve ter pelo menos 6 caracteres.");
+  if (senhaCadastro !== confirmaSenha) erros.push("As senhas não coincidem.");
+
+  const emailJaExiste = dadosUsuario.some(u => u.email === emailCadastro);
+  if (emailJaExiste) erros.push("E-mail já cadastrado.");
+
+  if (erros.length > 0) {
+    exibirErros(cadastrarDialog, erros);
+    return;
+  }
+
+  dadosUsuario.push({ nome, cpf, email: emailCadastro, senha: senhaCadastro });
+
+  e.target.reset();
+  cadastrarDialog.close();
+  login.showModal();
+});
