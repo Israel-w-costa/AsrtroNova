@@ -42,7 +42,6 @@
 }
 
 .info_calendar,
-.info_users,
 .info_mail,
 .info_clock {
     color: white;
@@ -54,10 +53,6 @@
 
 .info_calendar {
     background-color: aqua;
-}
-
-.info_users {
-    background-color: pink;
 }
 
 .info_mail {

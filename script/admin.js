@@ -14,7 +14,11 @@ const tableBodyVisit = document.querySelector("tbody#table_body_visit");
 let eventCounter = document.getElementById("event-card-value");
 let eventCount = eventsStorage.length > 0 ? eventsStorage.length : 0;
 
-console.log (tableBodyVisit)
+let visitCounter = document.getElementById("visit-card-value");
+let visitCount = visitsStorage.length > 0 ? visitsStorage.length : 0;
+
+console.log(visitCount)
+
 
 
 function createTable(tbody ,valor1,valor2,valor3,valor4) {
@@ -44,7 +48,7 @@ function createTable(tbody ,valor1,valor2,valor3,valor4) {
 
 }
 
-function deleteTablebtn (deleteBtn , storage, index) {
+function deleteTablebtn (deleteBtn , storage, storageKey, index) {
 
       deleteBtn.addEventListener("click", (e) => {
                 const td = e.target.parentElement;
@@ -52,32 +56,25 @@ function deleteTablebtn (deleteBtn , storage, index) {
                 console.log(e.target.parentElement)
 
                 if (
-                    row.children[0].textContent === storage[index].name &&
-                    row.children[1].textContent === storage[index].date
+                    row.children[0].textContent === storage[index].name ||
+                    row.children[0].textContent === storage[index].nome
                 ) {
                     storage.splice(index, 1);
 
-                    if ( localStorage.getItem("event")){
-                        localStorage.setItem("event", JSON.stringify(storage));
-                    }
-                    if ( localStorage.getItem("dadosAgendamento")){
-                        localStorage.setItem("dadosAgendamento", JSON.stringify(storage));
-                    }
-                
-                
-                }
+                    localStorage.setItem(storageKey, JSON.stringify(storage));
 
+                    if(storageKey === "event") {
+                        eventCount--;
+                        eventCounter.textContent = eventCount;}
+                    if (storageKey === "dadosAgendamento") {
+                         visitCount--;
+                        visitCounter.textContent = visitCount;
+                    }    
+                    }
+ 
                 row.remove();
-                eventCount--;
-                eventCounter.textContent = eventCount;
-
-                setTimeout(() => window.location.reload(), 1000);
             });
 }
-
-window.addEventListener("load", () => {
-    eventCounter.textContent = eventCount;
-});
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -95,6 +92,12 @@ form.addEventListener("submit", (e) => {
     localStorage.setItem("event", JSON.stringify(eventsStorage));
     window.location.reload();
 });
+
+window.addEventListener("load", () => {
+    eventCounter.textContent = eventCount;
+    visitCounter.textContent = visitCount;
+});
+
 
 tableButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
@@ -120,11 +123,11 @@ tableButtons.forEach((button) => {
 
 
 window.addEventListener("load", () => {
-    if (eventsStorage.length > 0) {
+    if (eventsStorage.length > 0) {visitsStorage
         eventsStorage.forEach((eventData, index) => {
 
             const deletebtn = createTable(tableBodyEvent,eventData.name,eventData.date, eventData.desc, eventData.eventParticipants);
-            deleteTablebtn(deletebtn, eventsStorage, index);
+            deleteTablebtn(deletebtn, eventsStorage,"event", index);
 
         });
     }
@@ -132,7 +135,7 @@ window.addEventListener("load", () => {
     if (visitsStorage.length > 0) {
         visitsStorage.forEach((visitData, index) => {
           const deletebtn = createTable(tableBodyVisit,visitData.nome,visitData.email, visitData.telefone, visitData.date);
-          deleteTablebtn(deletebtn, visitsStorage, index);
+          deleteTablebtn(deletebtn, visitsStorage ,"dadosAgendamento" , index);
         
         });
     }
