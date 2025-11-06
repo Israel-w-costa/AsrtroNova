@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 
 <body>
@@ -41,25 +42,52 @@
             <a href="index.html" class="fonte_branco">Início</a>
             <a href="eventos.html" class="fonte_branco">Eventos</a>
             <a href="agendamento.html" class="fonte_branco">Agendamento</a>
-            <a href="admin.html" class="fonte_branco">Admin</a>
+            <a href="#" class="fonte_branco" id="abrirLogin">Login</a>
+            <link rel="stylesheet" href="index.css">
         </nav>
 
     </header>
-    <section>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
-        <h1>1</h1>
+    <main>
+    <section class="inicial">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-telescope-icon lucide-telescope"><path d="m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44"/><path d="m13.56 11.747 4.332-.924"/><path d="m16 21-3.105-6.21"/><path d="M16.485 5.94a2 2 0 0 1 1.455-2.425l1.09-.272a1 1 0 0 1 1.212.727l1.515 6.06a1 1 0 0 1-.727 1.213l-1.09.272a2 2 0 0 1-2.425-1.455z"/><path d="m6.158 8.633 1.114 4.456"/><path d="m8 21 3.105-6.21"/><circle cx="12" cy="13" r="2"/></svg>
+        <h1>AstroNova</h1>
+        <h2>Explore o Universo Conosco</h2>
+        <p>Descubra os mistérios do cosmos através de eventos exclusivos, notícias astronômicas e experiências imersivas no nosso observatório de última geração.</p>
+        <div class="link">
+        <a href="./eventos.html">Explorar Eventos <svg class="arrowicon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="./agendamento.html">Agendar Visita</a>
+        </div>
     </section>
-
+    </main>
+    <dialog id="login">
+    <form>
+        <h2>Login</h2>
+            <label for="email"> E-mail:</label>
+            <input type="text" name="email" id="email"><br>
+            <label for="senha"> Senha: </label>
+            <input type="password" name="senha" id="senha"><br>
+            <button type="button" id="cadastrabtn">Cadastrar</button>
+            <button type="button" id="btnFechar">Sair</button>
+            <button type="submit" >Entrar</button>
+    </form>
+</dialog>
+ <dialog id="cadastro">
+    <form id="cadastrobtn">
+        <h2>Cadastro</h2>
+            <label for="nome"> Nome:</label>
+            <input type="" name="nome" id="nome"><br/>
+            <label for="nome"> Cpf:</label>
+            <input type="text" name="cpf" id="cpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" aria-label="Numero do cpf" /><br>
+            <label for="emailCadastro"> E-mail:</label>
+            <input type="text" name="emailCadastro" id="emailCadastro"><br>
+            <label for="senhaCadastro"> Senha: </label>
+            <input type="password" name="senhaCadastro" id="senhaCadastro"><br>
+            <label for="confirmaSenha"> Confirma senha: </label>
+            <input type="password" name="confirmaSenha" id="confirmaSenha"><br>
+            <button type="button" id="btnFecharCadastro">Sair</button>
+            <button type="submit">cadastro</button>
+    </form>
+</dialog>
     <footer>
         <div class="container_rodape">
             <div class="coluna_rodape">
@@ -103,6 +131,8 @@
                 amantes do cosmos.</p>
         </div>
     </footer>
+
+    <script src="./index.js"></script>
 
 </body>
 

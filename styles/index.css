@@ -1,0 +1,135 @@
+.inicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    background: linear-gradient(90deg,rgb(0, 179, 255), rgb(167, 30, 167));
+    padding: 1rem;
+    width: auto;
+    height: 2rem;
+    border-radius: 13px;
+    margin-top: 5rem;
+}
+
+.inicial h1 {
+    background: linear-gradient(90deg,rgb(0, 179, 255), rgb(167, 30, 167));
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-size: 4rem;
+}
+
+.inicial h2 {
+    color: #bfbfbf;
+}
+
+.inicial p {
+    width: 50rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #bfbfbf;
+}
+
+.link {
+    display: flex;
+    gap: 1rem;
+}
+
+.link a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    width: 12rem;
+    border-radius: 8px;
+    margin: 10px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.link a:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    background: linear-gradient(90deg, rgb(0, 179, 255), rgb(0, 90, 168));
+}
+
+.arrowicon {
+    width: auto;
+    height: 1rem;
+}
+
+.link a:nth-child(2) {
+    color:rgb(0, 179, 255);
+    background-color: white;
+    border: 3px solid rgb(0, 179, 255);
+}
+
+dialog{
+    width: 40%;
+    min-width: 300px;
+    padding: 20px;
+    padding-top: 0px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+input, select, textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button:hover { background-color: #0056b3; }
+
+button[type="button"]{ background-color: #f5b049; }
+button[type="button"]:hover{ background-color: #ac7727; }
+
+dialog button{ margin-top: 20px;}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+dialog p.erro{
+    padding: 10px;
+    background-color: rgb(255, 190, 190);
+    color: rgb(86, 2, 2);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .inicial p {
+    width: 28rem;
+    font-size: 0.8rem;
+    text-wrap: wrap;
+}
+}
+
+@media (max-width: 480px) {
+    .inicial p {
+    width: 18rem;
+}
+    .link a {
+    padding: 8px;
+    width: 10rem;
+    margin: 8px;
+}
+}

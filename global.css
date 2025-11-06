@@ -30,26 +30,29 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-nav {
+header {
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 1000;
+}
+
+nav {
     display: flex;
-    align-items: center;
+    align-items: center; 
     justify-content: flex-end;
     margin-inline-start: 12rem;
     margin-inline-end: 12rem;
+    gap: 1rem;
 }
 
-nav> :nth-child(2) {
+nav h1 {
     margin-right: auto;
-    margin-left: 2rem;
-}
-
-nav svg {
-    width: 2rem;
     margin-left: 2rem;
 }
 
@@ -58,11 +61,23 @@ nav a {
     text-decoration: none;
     color: white;
     margin-left: 2rem;
+    padding: 0.5rem;
 }
 
 a:hover {
-    color: #3AF7F7;
+    box-shadow: 0 0 8px rgba(58, 247, 247, 0.2);
+    border: 1px solid #3af7f7;
+    color: #3af7f7;
+    background: #141622; 
+    border-radius: 14px;
+    cursor: pointer;
+ }
+
+ a.sem-estilo {
+    all: unset !important; 
+    cursor: pointer !important;
 }
+
 
 footer {
     background-color: #050510CC;
@@ -104,6 +119,8 @@ footer {
 }
 
 .link_rodape {
+    font-size: none;
+    margin-left: none;
     display: block;
     color: #DBE9F4;
     text-decoration: none;
@@ -111,6 +128,11 @@ footer {
 }
 
 .link_rodape:hover {
+    font-size: none;
+    margin-left: none;
+    border: none;
+    background: none;
+    box-shadow: none;
     color: #3AF7F7;
 }
 
@@ -129,22 +151,32 @@ footer {
     color: #ff4b4b;
 }
 
-@media (max-width: 950px) {
+
+
+@media (max-width: 1250px) {
     body {
-        padding-top: 18rem;
+        padding-top: 0; 
     }
 
     nav {
         flex-direction: column;
-        margin: 1rem;
-    }
-
-    nav a {
-        margin: 0.5rem 0;
+        justify-content: center; 
+        align-items: center;     
+        margin: 0; 
+        padding: 1rem 0; 
     }
 
     nav h1 {
-        margin: 0.5rem 0;
+        margin: 0.5rem 0; 
+        text-align: center;
+    }
+
+    nav a {
+        margin: 0.3rem 0;
+    }
+
+    nav svg {
+        margin-left: none;
     }
 
     .container_rodape {
