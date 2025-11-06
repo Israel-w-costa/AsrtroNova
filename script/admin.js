@@ -1,171 +1,143 @@
 const form = document.getElementById("form");
-const storageEvent = JSON.parse(localStorage.getItem("event")) || [];
-const storageVisit = JSON.parse(localStorage.getItem("visit")) || [];
 
-const tablebtn = document.querySelectorAll("section.table > div > button");
-const table_events = document.querySelector("div.table_events");
-const table_sale = document.querySelector("div.table_sale");
-const table_visit = document.querySelector("div.table_visit");
+const eventsStorage = JSON.parse(localStorage.getItem("event")) || [];
+const visitsStorage = JSON.parse(localStorage.getItem("dadosAgendamento")) || [];
 
-let eventCardValue = document.getElementById("event-card-value");
-let valueEvent = storageEvent.length > 0 ? storageEvent.length : 0;
-console.log(storageEvent.length)
+const tableButtons = document.querySelectorAll("section.table > div > button");
+const eventsTable = document.querySelector("div.table_events");
+const salesTable = document.querySelector("div.table_sale");
+const visitsTable = document.querySelector("div.table_visit");
+
+const tableBodyEvent = document.querySelector("tbody#table_body_event");
+const tableBodyVisit = document.querySelector("tbody#table_body_visit");
+
+let eventCounter = document.getElementById("event-card-value");
+let eventCount = eventsStorage.length > 0 ? eventsStorage.length : 0;
+
+console.log (tableBodyVisit)
+
+
+function createTable(tbody ,valor1,valor2,valor3,valor4) {
+     const tableRow = document.createElement("tr");
+
+            let tdName = document.createElement("td");
+            tdName.textContent = valor1;
+
+            let tdDate = document.createElement("td");
+            tdDate.textContent = valor2;
+
+            let tdCategory = document.createElement("td");
+            tdCategory.textContent = valor3;
+
+            let tdParticipants = document.createElement("td");
+            tdParticipants.textContent = valor4;
+
+            let tdActions = document.createElement("td");
+            let deleteBtn = document.createElement("button");
+            deleteBtn.classList.add("deletebtn");
+            deleteBtn.textContent = "Excluir";
+
+            tdActions.append(deleteBtn);
+            tableRow.append(tdName, tdDate, tdCategory, tdParticipants, tdActions);
+            tbody.appendChild(tableRow);
+            return deleteBtn;
+
+}
+
+function deleteTablebtn (deleteBtn , storage, index) {
+
+      deleteBtn.addEventListener("click", (e) => {
+                const td = e.target.parentElement;
+                const row = td.parentElement;
+                console.log(e.target.parentElement)
+
+                if (
+                    row.children[0].textContent === storage[index].name &&
+                    row.children[1].textContent === storage[index].date
+                ) {
+                    storage.splice(index, 1);
+
+                    if ( localStorage.getItem("event")){
+                        localStorage.setItem("event", JSON.stringify(storage));
+                    }
+                    if ( localStorage.getItem("dadosAgendamento")){
+                        localStorage.setItem("dadosAgendamento", JSON.stringify(storage));
+                    }
+                
+                
+                }
+
+                row.remove();
+                eventCount--;
+                eventCounter.textContent = eventCount;
+
+                setTimeout(() => window.location.reload(), 1000);
+            });
+}
 
 window.addEventListener("load", () => {
-    eventCardValue.textContent = valueEvent;
-})
-
+    eventCounter.textContent = eventCount;
+});
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    let formEvent = {};
+    let newEventData = {};
+    eventCount++;
 
-    valueEvent++;
+    const formInputs = form.querySelectorAll("input, select");
 
-    const formValues = form.querySelectorAll("input, select");
+    formInputs.forEach((input) => {
+        newEventData[input.id] = input.value;
+    });
 
-    formValues.forEach(formValue => {
-        formEvent[formValue.id] = formValue.value;
-    })
-
-    storageEvent.push(formEvent);
-
-    localStorage.setItem("event", JSON.stringify(storageEvent));
+    eventsStorage.push(newEventData);
+    localStorage.setItem("event", JSON.stringify(eventsStorage));
     window.location.reload();
-})
+});
 
+tableButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        const clickedButton = event.target;
 
-tablebtn.forEach(table => {
-    table.addEventListener("click", (t) => {
+        if (clickedButton.textContent !== "Eventos") {
+            eventsTable.style.display = "none";
 
-        const tableSelect = t.target;
-
-        if (tableSelect.textContent !== "Eventos") {
-
-            table_events.style = "display:none";
-
-            if (tableSelect.textContent == "Vendas") {
-                table_sale.style = "display:block";
-                table_visit.style = "display:none";
+            if (clickedButton.textContent === "Vendas") {
+                salesTable.style.display = "block";
+                visitsTable.style.display = "none";
+            } else {
+                visitsTable.style.display = "block";
+                salesTable.style.display = "none";
             }
-            else {
-                table_visit.style = "display:block"
-                table_sale.style = "display:none";
-            }
+        } else {
+            salesTable.style.display = "none";
+            visitsTable.style.display = "none";
+            eventsTable.style.display = "block";
         }
+    });
+});
 
-        if (tableSelect.textContent === "Eventos") {
-            table_sale.style = "display:none";
-            table_visit.style = "display:none";
-            table_events.style = "display:block";
-        }
-    })
-}
-)
-
-const tbody = document.querySelector("tbody");;
 
 window.addEventListener("load", () => {
+    if (eventsStorage.length > 0) {
+        eventsStorage.forEach((eventData, index) => {
 
-    if (storageEvent.length > 0) {
-    storageEvent.forEach((array, index) => {
+            const deletebtn = createTable(tableBodyEvent,eventData.name,eventData.date, eventData.desc, eventData.eventParticipants);
+            deleteTablebtn(deletebtn, eventsStorage, index);
 
-        const table_row = document.createElement("tr");
-
-        let tdNameEvent = document.createElement("td");
-        tdNameEvent.textContent = array.name;
-
-        let tdDateEvent = document.createElement("td");
-        tdDateEvent.textContent = array.date;
-
-        let tdCategoryEvent = document.createElement("td");
-        tdCategoryEvent.textContent = array.desc;
-
-        let tdParticipantEvent = document.createElement("td");
-        tdParticipantEvent.textContent = array.eventParticipants;
-
-        let tdPbtnEvent = document.createElement("td");
-        let deletebtn = document.createElement("button");
-        deletebtn.classList.add("deletebtn");
-        deletebtn.textContent = "Excluir";
-
-        tdPbtnEvent.append(deletebtn);
-
-        table_row.append(tdNameEvent, tdDateEvent, tdCategoryEvent, tdParticipantEvent, tdPbtnEvent);
-
-        tbody.appendChild(table_row);
-
-        deletebtn.addEventListener("click", deleteEvent => {
-            const trDeleteEvent = deleteEvent.target.parentElement;
-            const thDeleteEvent = trDeleteEvent.parentElement;
-
-            if (
-                thDeleteEvent.children[0].textContent == storageEvent[index].name &&
-                thDeleteEvent.children[1].textContent == storageEvent[index].date
-            ) {
-                storageEvent.splice(index, 1);
-                localStorage.setItem("event", JSON.stringify(storageEvent));
-            }
-            
-            console.log(valueEvent)
-            thDeleteEvent.remove();
-            console.log(valueEvent)
-            valueEvent--;
-            setTimeout(() => {
-            eventCardValue.textContent = valueEvent;
-            window.location.reload();}, 1000);
         });
-    });
-}
+    }
 
-if (storageVisit.length > 0) {
-    storageVisit.forEach((array, index) => {
-
-        const table_row = document.createElement("tr");
-
-        let tdNameVisit = document.createElement("td");
-        tdNameVisit.textContent = array.name;
-
-        let tdDateVisit = document.createElement("td");
-        tdDateVisit.textContent = array.date;
-
-        let tdCategoryVisit = document.createElement("td");
-        tdCategoryVisit.textContent = array.desc;
-
-        let tdParticipantVisit = document.createElement("td");
-        tdParticipantVisit.textContent = array.eventParticipants;
-
-        let tdPbtnVisit = document.createElement("td");
-        let deletebtn = document.createElement("button");
-        deletebtn.classList.add("deletebtn");
-        deletebtn.textContent = "Excluir";
-
-        tdPbtnVisit.append(deletebtn);
-
-        table_row.append(tdNameVisit, tdDateVisit, tdCategoryVisit, tdParticipantVisit, tdPbtnVisit);
-
-        tbody.appendChild(table_row);
-
-        deletebtn.addEventListener("click", deleteEvent => {
-            const trDeleteVisit = deleteEvent.target.parentElement;
-            const thDeleteVisit = trDeleteVisit.parentElement;
-
-            if (
-                thDeleteVisit.children[0].textContent == storageVisit[index].name &&
-                thDeleteVisit.children[1].textContent == storageVisit[index].date
-            ) {
-                storageVisit.splice(index, 1);
-                localStorage.setItem("event", JSON.stringify(storageVisit));
-            }
-
-            thDeleteVisit.remove();
+    if (visitsStorage.length > 0) {
+        visitsStorage.forEach((visitData, index) => {
+          const deletebtn = createTable(tableBodyVisit,visitData.nome,visitData.email, visitData.telefone, visitData.date);
+          deleteTablebtn(deletebtn, visitsStorage, index);
+        
         });
-    });
-} 
+    }
+});
 
-
-        })
 
 
 
