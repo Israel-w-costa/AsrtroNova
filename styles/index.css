@@ -115,6 +115,8 @@ dialog p.erro{
     text-align: center;
 }
 
+
+
 @media (max-width: 768px) {
     .inicial p {
     width: 28rem;

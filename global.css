@@ -40,6 +40,8 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    background-color: #050510;
+    border-bottom: 1px solid #3af7f7;
 }
 
 nav {
