@@ -9,7 +9,7 @@ const salesTable = document.querySelector("div.table_sale");
 const visitsTable = document.querySelector("div.table_visit");
 
 const tableBodyEvent = document.querySelector("tbody#table_body_event");
-const tableBodyVisit = document.querySelector("tbody#table_body_visit");
+const tableBodyVisit = document.querySelector("tbody#table_body_visit"); 
 
 let eventCounter = document.getElementById("event-card-value");
 let eventCount = eventsStorage.length > 0 ? eventsStorage.length : 0;

@@ -288,5 +288,75 @@ footer {
     text-align: center;
 }
 
-/* .cardbox img{
-} */
+/* MODAL */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Caixa do modal */
+  .popup {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+
+  /* Exibir quando "ativado" */
+  #abrir-popup:checked + .overlay {
+    display: flex;
+  }
+
+  .popup h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 90%;
+  }
+
+  .fechar {
+    display: block;
+    text-align: right;
+    color: #888;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  .fechar:hover {
+    color: #000;
+  }
+
+  .botao-enviar {
+    background-color: #101820;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .botao-enviar:hover {
+    background-color: #303840;
+  }
