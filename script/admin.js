@@ -138,6 +138,7 @@ window.addEventListener("load", () => {
           deleteTablebtn(deletebtn, visitsStorage ,"dadosAgendamento" , index);
         
         });
+
     }
 });
 

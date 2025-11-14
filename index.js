@@ -1,4 +1,3 @@
-// Seletores principais
 const loginbtn = document.getElementById("abrirLogin");
 const cadastrabtn = document.getElementById("cadastrabtn");
 const dialog = document.querySelector("dialog");
