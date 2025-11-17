@@ -29,7 +29,7 @@ button {
 
 button:hover { background-color: #0056b3; }
 
-button[type="button"]{ background-color: #f5b049; }
+button[type="button"]{ background-color: #f5b049 !important; }
 button[type="button"]:hover{ background-color: #ac7727; }
 
 dialog button{ margin-top: 20px;}

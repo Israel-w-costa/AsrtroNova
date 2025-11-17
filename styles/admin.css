@@ -279,6 +279,10 @@ td {
         overflow-x: none;
     }
 
+    .form {
+        width: 60%;
+    }
+
     .form-infor {
     flex-direction: column;
     gap: 1rem;
@@ -307,5 +311,13 @@ td {
     margin-right: 1rem !important;
 }
 
+}
+
+
+@media (max-width:480px){
+
+    .form {
+        width: 80%;
+    }
 }
 

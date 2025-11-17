@@ -38,12 +38,12 @@
     align-items: center;
 }
 
-label {
+.layout_section label {
     display: block;
     margin: 1rem 0;
 }
 
-input {
+.layout_section input {
     width: 100%;
     box-sizing: border-box;
     padding: 0.5rem;
@@ -54,7 +54,7 @@ input {
     color: #DBE9F4;
 }
 
-form {
+.layout_section form {
     padding: 2rem;
 }
 
@@ -73,7 +73,7 @@ select {
     margin-top: 3rem;
 }
 
-button {
+.layout_section button {
     width: 100%;
     height: 2rem;
     box-shadow: 0 0 8px rgba(58, 247, 247, 0.2);
@@ -83,7 +83,7 @@ button {
     border-radius: 7px;
 }
 
-button:hover {
+.layout_section button:hover {
     width: 100%;
     height: 2rem;
     box-shadow: 0 0 8px rgba(58, 247, 247, 0.2);

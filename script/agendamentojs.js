@@ -1,6 +1,4 @@
 let dadosAgendamento = JSON.parse(localStorage.getItem('dadosAgendamento')) || [];
-// let hour = document.querySelector('input[name="hour"]:checked');
-// console.log(hour)
 
 document.getElementById('formularioAgendamento').addEventListener('submit', e => {
     e.preventDefault();
