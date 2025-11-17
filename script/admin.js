@@ -12,6 +12,8 @@ const visitsTable = document.querySelector("div.table_visit");
 const tableBodyEvent = document.querySelector("tbody#table_body_event");
 const tableBodyVisit = document.querySelector("tbody#table_body_visit"); 
 
+const isAdmin = sessionStorage.getItem("isAdmin");
+
 let salesCounter = document.getElementById("compraIngresso");
 let salesCount = salesStorage.length > 0 ? salesStorage.length : 0;
 
@@ -143,8 +145,15 @@ window.addEventListener("load", () => {
     }
 });
 
-Document.getElementById("closeLogin").addEventListener("click",()=>{
-    sessionStorage.removeItem("usuarioLogado");    
+if (isAdmin !== "true") {
+    window.location.replace("../index.html");
+  }
+
+
+document.getElementById("closeLogin").addEventListener("click",()=>{
+    sessionStorage.removeItem("usuarioLogado");
+    sessionStorage.setItem("isAdmin", "false");
+    
     window.location.href = "../index.html";
 
 })

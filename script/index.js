@@ -16,7 +16,6 @@ let dadosUsuario = [
   { nome: "aluno", email: "aluno@aluno.com", senha: "aluno", cpf: "012.743.657-91", tipo: "cliente" }
 ];
 
-
 function limparErros(container) {
   const erros = container.querySelectorAll('.erro, .erro-box');
   erros.forEach(e => e.remove());
@@ -45,6 +44,7 @@ formLogin.addEventListener('submit', (e) => {
     sessionStorage.setItem('usuarioLogado', JSON.stringify(usuario));
 
     if (usuario.tipo === "admin") {
+      sessionStorage.setItem("isAdmin", "true");
       if(locationNew === "/index.html#") {window.location.href = "./pages/admin.html";}
       else {window.location.href = "./admin.html";}
     } else {
