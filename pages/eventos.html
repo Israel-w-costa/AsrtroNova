@@ -39,6 +39,7 @@
             <a href="../index.html" class="fonte_branco">Início</a>
             <a href="./eventos.html" class="fonte_branco">Eventos</a>
             <a href="./agendamento.html" class="fonte_branco">Agendamento</a>
+            <a href="#" class="fonte_branco" id="abrirLogin">Login</a>
         </nav>
     </header>
     <main>
@@ -50,8 +51,36 @@
         </div>
         </div>
     </main>
-
-
+    <dialog id="login">
+        <form>
+            <h2>Login</h2>
+            <label for="email"> E-mail:</label>
+            <input type="text" name="email" id="email"><br>
+            <label for="senha"> Senha: </label>
+            <input type="password" name="senha" id="senha"><br>
+            <button type="button" id="cadastrabtn">Cadastrar</button>
+            <button type="button" id="btnFechar">Sair</button>
+            <button type="submit">Entrar</button>
+        </form>
+    </dialog>
+    <dialog id="cadastro">
+        <form id="cadastrobtn">
+            <h2>Cadastro</h2>
+            <label for="nome"> Nome:</label>
+            <input type="" name="nome" id="nome"><br />
+            <label for="nome"> Cpf:</label>
+            <input type="text" name="cpf" id="cpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00"
+                aria-label="Numero do cpf" /><br>
+            <label for="emailCadastro"> E-mail:</label>
+            <input type="text" name="emailCadastro" id="emailCadastro"><br>
+            <label for="senhaCadastro"> Senha: </label>
+            <input type="password" name="senhaCadastro" id="senhaCadastro"><br>
+            <label for="confirmaSenha"> Confirma senha: </label>
+            <input type="password" name="confirmaSenha" id="confirmaSenha"><br>
+            <button type="button" id="btnFecharCadastro">Sair</button>
+            <button type="submit">cadastro</button>
+        </form>
+    </dialog>
 
     <footer>
         <div class="container_rodape">
@@ -97,6 +126,7 @@
         </div>
     </footer>
     <script src="../script/eventos.js"></script>
+    <script src="../script/index.js"></script>
 </body>
 
 </html>
