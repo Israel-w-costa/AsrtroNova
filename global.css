@@ -51,10 +51,13 @@ header {
 nav {
     display: flex;
     align-items: center; 
-    justify-content: flex-end;
-    margin-inline-start: 12rem;
-    margin-inline-end: 12rem;
+    justify-content: space-around;
     gap: 1rem;
+}
+
+nav > div:nth-child(1) {
+    display: flex;
+    align-items: center;
 }
 
 nav h1 {
@@ -63,11 +66,17 @@ nav h1 {
     margin-left: 2rem;
 }
 
+nav > div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
 nav a {
     font-size: larger;
     text-decoration: none;
     color: white;
-    margin-left: 2rem;
     padding: 0.5rem;
 }
 
@@ -159,22 +168,10 @@ footer {
 }
 
 
-
-@media (max-width: 1250px) {
     body {
         padding-top: 0; 
     }
 
-    nav {
-        justify-content: center; 
-        margin: 0; 
-        padding: 1rem 0; 
-    }
-
-    nav h1 {
-        margin: 0.5rem 0; 
-        text-align: center;
-    }
 
     nav a {
         margin: 0.3rem 0;
@@ -193,12 +190,22 @@ footer {
     .coluna_rodape {
         min-width: 100%;
     }
-}
 
-@media (max-width: 992px) {
-     nav h1 {
-        font-size: 1rem;
+
+@media (max-width: 820px) {
+
+      nav {
+        justify-content: center; 
+        margin: 0; 
+        padding: 1rem 0; 
     }
+
+    nav h1 {
+        margin: 0.5rem 0; 
+        text-align: center;
+         font-size: 1rem;
+    }
+
 
     nav a {
         font-size: 0.8rem;
@@ -212,3 +219,18 @@ footer {
     }
 }
 
+@media (max-width: 560px) {
+
+    .header-icon {
+    }
+
+    nav{
+        flex-direction: column;
+    }
+
+    nav h1 {
+        margin-left: 2rem;
+        font-size: 1.5rem;
+    }
+
+}

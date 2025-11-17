@@ -209,6 +209,13 @@
     height: 1rem;
 } 
 
+.container_table  {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: block;
+}
+
 table {
   width: 80%;
   border-collapse: collapse;
@@ -279,7 +286,7 @@ td {
         overflow-x: none;
     }
 
-    .form {
+    #form {
         width: 60%;
     }
 
@@ -311,12 +318,16 @@ td {
     margin-right: 1rem !important;
 }
 
+  table {
+        overflow-x: auto;
+    }
+
 }
 
 
 @media (max-width:480px){
 
-    .form {
+    #form {
         width: 80%;
     }
 }
