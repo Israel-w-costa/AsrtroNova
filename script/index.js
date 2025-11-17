@@ -40,7 +40,9 @@ formLogin.addEventListener('submit', (e) => {
   if (usuario) {
     sessionStorage.setItem('usuarioLogado', JSON.stringify(usuario));
 
-    if (usuario.tipo === "admin") {
+     const path = location.pathname;
+
+     if (path === "/" || path.endsWith("/index.html"))  {
       sessionStorage.setItem("isAdmin", "true");
       if(location.pathname.includes("index.html")) {window.location.href = "./pages/admin.html";}
       else {window.location.href = "./admin.html";}

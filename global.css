@@ -221,9 +221,6 @@ footer {
 
 @media (max-width: 560px) {
 
-    .header-icon {
-    }
-
     nav{
         flex-direction: column;
     }
