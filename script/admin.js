@@ -21,9 +21,6 @@ let eventCount = eventsStorage.length > 0 ? eventsStorage.length : 0;
 let visitCounter = document.getElementById("visit-card-value");
 let visitCount = visitsStorage.length > 0 ? visitsStorage.length : 0;
 
-console.log(visitCount)
-
-
 
 function createTable(tbody ,valor1,valor2,valor3,valor4) {
      const tableRow = document.createElement("tr");
@@ -145,3 +142,6 @@ window.addEventListener("load", () => {
 
     }
 });
+
+//   console.log(window.location.href)
+//   console.log('oi')

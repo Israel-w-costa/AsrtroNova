@@ -7,11 +7,14 @@ const btnFecharCadastro = document.getElementById("btnFecharCadastro");
 const login = document.getElementById('login');
 const cadastrobtn = document.getElementById("cadastrobtn");
 const formLogin = document.querySelector('#login form');
+const locationRef = window.location.href;
 
 let dadosUsuario = [
   { nome: "admin", email: "admin@admin.com", senha: "123", cpf: "012.743.657-92", tipo: "admin" },
   { nome: "aluno", email: "aluno@aluno.com", senha: "aluno", cpf: "012.743.657-91", tipo: "cliente" }
 ];
+
+let locationNew = location.replace("https://asrtro-nova.vercel.app/", "/");
 
 function limparErros(container) {
   const erros = container.querySelectorAll('.erro, .erro-box');
@@ -41,7 +44,8 @@ formLogin.addEventListener('submit', (e) => {
     sessionStorage.setItem('usuarioLogado', JSON.stringify(usuario));
 
     if (usuario.tipo === "admin") {
-      window.location.href = "./pages/admin.html";
+      if(locationNew === "/index.html#") {window.location.href = "./pages/admin.html";}
+      else {window.location.href = "./admin.html";}
     } else {
       window.location.href = "./index.html";
     }
