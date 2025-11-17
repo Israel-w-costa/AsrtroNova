@@ -7,10 +7,6 @@ const btnFecharCadastro = document.getElementById("btnFecharCadastro");
 const login = document.getElementById('login');
 const cadastrobtn = document.getElementById("cadastrobtn");
 const formLogin = document.querySelector('#login form');
-const locationRef = window.location.href;
-
-// let locationNew = locationRef.replace("https://asrtro-nova.vercel.app/", "/");
-let locationNew = locationRef.replace("http://127.0.0.1:5500/", "/");
 
 let dadosUsuario = [
   { nome: "admin", email: "admin@admin.com", senha: "123", cpf: "012.743.657-92", tipo: "admin" },
@@ -46,7 +42,7 @@ formLogin.addEventListener('submit', (e) => {
 
     if (usuario.tipo === "admin") {
       sessionStorage.setItem("isAdmin", "true");
-      if(locationNew === "/index.html#") {window.location.href = "./pages/admin.html";}
+      if(location.pathname.includes("index.html")) {window.location.href = "./pages/admin.html";}
       else {window.location.href = "./admin.html";}
     } else {
       window.location.href = "./index.html";
