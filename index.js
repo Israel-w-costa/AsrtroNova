@@ -9,8 +9,8 @@ const cadastrobtn = document.getElementById("cadastrobtn");
 const formLogin = document.querySelector('#login form');
 
 let dadosUsuario = [
-  { nome: "admin", email: "admin@admin.com", senha: "123", cpf: "012.743.657-92" },
-  { nome: "aluno", email: "aluno@aluno.com", senha: "aluno", cpf: "012.743.657-91" }
+  { nome: "admin", email: "admin@admin.com", senha: "123", cpf: "012.743.657-92", tipo: "admin" },
+  { nome: "aluno", email: "aluno@aluno.com", senha: "aluno", cpf: "012.743.657-91", tipo: "cliente" }
 ];
 
 function limparErros(container) {
@@ -36,21 +36,20 @@ formLogin.addEventListener('submit', (e) => {
   const senha = document.getElementById('senha').value.trim();
 
   const usuario = dadosUsuario.find(u => u.email === email && u.senha === senha);
-  const admin = dadosUsuario.find(u => u.email === email && u.senha === senha);
 
-if (admin) {
-  sessionStorage.setItem('usuarioLogado', "admin");
-  window.location.href = "./admin.html";
-} else if (usuario) {
-  sessionStorage.setItem('usuarioLogado', "true");
-  sessionStorage.setItem('nomeUsuario', usuario.nome);
-  window.location.href = "./index.html";
-} else {
-  exibirErros(login, ["Login ou senha inválido."]);
-  e.target.reset();
-}
-})
+  if (usuario) {
+    sessionStorage.setItem('usuarioLogado', JSON.stringify(usuario));
 
+    if (usuario.tipo === "admin") {
+      window.location.href = "./admin.html";
+    } else {
+      window.location.href = "./index.html";
+    }
+  } else {
+    exibirErros(login, ["Login ou senha inválido."]);
+    e.target.reset();
+  }
+});
 
 cadastrabtn.addEventListener("click", () => {
   login.close();
@@ -85,7 +84,7 @@ cadastrobtn.addEventListener("submit", (e) => {
     return;
   }
 
-  dadosUsuario.push({ nome, cpf, email: emailCadastro, senha: senhaCadastro });
+  dadosUsuario.push({ nome, cpf, email: emailCadastro, senha: senhaCadastro, tipo: "cliente" });
 
   e.target.reset();
   cadastrarDialog.close();

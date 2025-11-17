@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    margin: 0 auto;
+    margin: 4rem auto 0 auto;
 }
 
 .info_card {
@@ -149,7 +149,7 @@
 
 .form-button {
     display: flex;
-    text-align: center;
+    justify-content: center;
     
 }
 
@@ -309,52 +309,3 @@ td {
 
 }
 
-@media (max-width:760px) {
-
-.form-infor-group1>div,
-.form-infor-group2>div {
-    flex-direction: column;
-}
-
-.form-infor-group2>div>input,
-.form-infor-group1>div>input {
-    width: 10rem !important;
-}
-
-.form-infor-group2>div>select,
-.form-infor-group1>div>select {
-    width: 10rem !important;
-}
-
-.form-button>button {
-    padding: 0.5rem;
-    width: 10rem;
-}
-
- table {
-    width: 100%;
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  th, td {
-    font-size: 0.8rem;
-    padding: 0.6rem 0.8rem;
-  }
-
-  caption {
-    font-size: 1.2rem;
-  }
-
-
-}
-
-@media (max-width:480px) {
-
-.form-button>button {
-    font-size: 0.8rem;
-    width: 8rem;
-}
-
-}

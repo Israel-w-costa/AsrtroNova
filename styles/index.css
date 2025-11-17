@@ -115,6 +115,42 @@ dialog p.erro{
     text-align: center;
 }
 
+.sobre, .servicos, .depoimentos, .cta-final {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sobre p {
+    width: 70%;
+    margin: 0 auto;
+    color: #bfbfbf;
+    line-height: 1.6;
+}
+
+.servicos img {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.depoimentos .cardbox {
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.cta-final {
+    background: #141622;
+    border: 1px solid #3AF7F7;
+    border-radius: 20px;
+    margin-bottom: 4rem;
+}
+
+.cta-final a {
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+
 @media (max-width: 768px) {
     .inicial p {
     width: 28rem;
