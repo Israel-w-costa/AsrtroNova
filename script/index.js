@@ -9,7 +9,8 @@ const cadastrobtn = document.getElementById("cadastrobtn");
 const formLogin = document.querySelector('#login form');
 const locationRef = window.location.href;
 
-let locationNew = locationRef.replace("https://asrtro-nova.vercel.app/", "/");
+// let locationNew = locationRef.replace("https://asrtro-nova.vercel.app/", "/");
+let locationNew = locationRef.replace("http://127.0.0.1:5500/", "/");
 
 let dadosUsuario = [
   { nome: "admin", email: "admin@admin.com", senha: "123", cpf: "012.743.657-92", tipo: "admin" },

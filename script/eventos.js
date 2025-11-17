@@ -3,7 +3,7 @@ let containerBtnInserirEvento = document.getElementById("containerBtnInserirEven
 var eventos = 1;
 const salesStorage = JSON.parse(localStorage.getItem("sales")) || [];
 
-let numInscritos = 0; 
+let numInscritos = 0;
 
 const listaEventos = JSON.parse(localStorage.getItem("event")) || [];
 
@@ -17,7 +17,7 @@ const adm = 1;
 function ValidaEventos() {
     if (!listaEventos.length > 0) {
         let cardSemEventos = `
-            <div class="cardbox" id name="CardEvento">
+            <div class="cardbox voidCard" name="CardEvento">
                         <p>Não há eventos disponíveis :(</p>
             </div>
             `;
@@ -72,14 +72,10 @@ function ComprarIngresso(evento) {
         fecharCompraIngresso()
 
         MaxInscritosEvento += quantidade;
-        
-        localStorage.setItem("event", JSON.stringify(salesStorage));
-        
-        localStorage.setItem("sales", JSON.stringify(salesStorage));
 
-        // Gravar no localStorage
-        // nome nomeEvento
-        // quantidade de inscritos no evento QtdInscritosEvento
+        localStorage.setItem("event", JSON.stringify(salesStorage));
+
+        localStorage.setItem("sales", JSON.stringify(salesStorage));
 
     } else {
         alert("Preencha todos os campos antes de continuar!");
@@ -109,20 +105,21 @@ function ReloadEventos() {
             <img src="${itens.image}" alt="foto do evento">
             <br>
             <div class="event-info">
-                <label><strong>Evento: </strong></label>
-                <input type="text" class="NomeEvento" disabled value='${itens.name}' id="NomeEvento"><br>
-                <label><strong>Descrição: </strong></label>
-                <input type="text" disabled value='${itens.desc}' id="DescEvento"><br>
+               <h2 class="NomeEvento" id="NomeEvento">${itens.name}</h2>
+               <p class="DescEvento" id="DescEvento">${itens.desc}</p>
+               <div class="event-info-info"> 
+                    <svg class="event-info-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                    <p class="DataEvento" id="DataEvento">${itens.date}</p>
+                </div>
+                <div class="event-info-info">
+                    <svg class="event-info-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-timer-icon lucide-timer"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg>
+                    <p class="HoraEvento" id="HoraEvento">${itens.timePeriod}</p>
+                </div>
+                <div class="event-info-info">
+                    <svg class="event-info-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                    <p class="LocalEvento" id="LocalEvento">${itens.place}</p>
+                </div>
 
-                <label><strong>Data: </strong></label>
-                <input type="date" disabled value='${itens.date}' id="DataEvento"><br>
-
-                <label><strong>Hora: </strong></label>
-                <input type="string" disabled value='${itens.timePeriod}' id="HoraEvento"><br>
-
-                <label><strong>Local: </strong></label>
-                <input type="text" disabled value='${itens.place}' id="LocalEvento"><br>
-            </div>
             <br>
             <button class="btn-inscrever" onclick="modalCompraIngresso(this)">Inscreva-se</button>
 
