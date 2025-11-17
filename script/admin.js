@@ -143,5 +143,8 @@ window.addEventListener("load", () => {
     }
 });
 
-//   console.log(window.location.href)
-//   console.log('oi')
+Document.getElementById("closeLogin").addEventListener("click",()=>{
+    sessionStorage.removeItem("usuarioLogado");    
+    window.location.href = "../index.html";
+
+})

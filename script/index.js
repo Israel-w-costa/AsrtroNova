@@ -9,12 +9,13 @@ const cadastrobtn = document.getElementById("cadastrobtn");
 const formLogin = document.querySelector('#login form');
 const locationRef = window.location.href;
 
+let locationNew = locationRef.replace("https://asrtro-nova.vercel.app/", "/");
+
 let dadosUsuario = [
   { nome: "admin", email: "admin@admin.com", senha: "123", cpf: "012.743.657-92", tipo: "admin" },
   { nome: "aluno", email: "aluno@aluno.com", senha: "aluno", cpf: "012.743.657-91", tipo: "cliente" }
 ];
 
-let locationNew = location.replace("https://asrtro-nova.vercel.app/", "/");
 
 function limparErros(container) {
   const erros = container.querySelectorAll('.erro, .erro-box');
