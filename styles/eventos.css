@@ -1,6 +1,6 @@
 .cardbox-container{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit,minmax(20rem,25rem));
     justify-content: center;
     width: 85%;
     margin: 4rem auto;
@@ -26,6 +26,7 @@
     width: 100%;
     height: 10rem;
     object-fit: cover;
+    object-position: top;
 }
 
 .cardbox:hover,

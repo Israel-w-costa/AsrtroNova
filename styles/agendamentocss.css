@@ -109,3 +109,24 @@ select {
 }
     
 }
+
+@media (max-width:768px){
+    .formatacao_form {
+    width: 60vw;
+}
+
+.formatacao_cards {
+    width:48vw;
+}
+
+.cards-icon{
+    width: 3rem;
+    height:3rem ;
+}
+
+.fonte_titulos {
+    font-size: 1.2rem;;
+    margin-left: 1rem;
+}
+
+}

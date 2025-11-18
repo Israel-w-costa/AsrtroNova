@@ -177,8 +177,8 @@
     flex-wrap: wrap;
     border: 1px solid #00bfff;
     border-radius: 0.5rem;
-    width: 30%;
-    margin: 1rem 10rem;
+    width: 30rem;
+    margin: 1rem 10%;
 }
 
 .table_button button{
@@ -205,8 +205,8 @@
 }
 
 .table_button  button:nth-child(1)  .button_icon {
-    width: 1rem;
-    height: 1rem;
+    /* width: 1rem; */
+    /* height: 1rem; */
 } 
 
 .container_table  {
@@ -330,5 +330,21 @@ td {
     #form {
         width: 80%;
     }
+
+    .button_icon {
+        display: none;
+    }
+
+    .table_button{
+     width: 12rem;   
+    }
+
+    .table_button button{
+    min-width: 10rem;
+    padding: 0.8rem;
 }
 
+  .table_button  span {
+    font-size: 0.8rem;
+}
+}
