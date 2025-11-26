@@ -94,3 +94,6 @@ cadastrobtn.addEventListener("submit", (e) => {
   cadastrarDialog.close();
   login.showModal();
 });
+
+
+ScrollReveal().reveal('.servicos', { delay: 500 });

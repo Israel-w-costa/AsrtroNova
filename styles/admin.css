@@ -204,10 +204,9 @@
     height: 1.2rem;
 }
 
-.table_button  button:nth-child(1)  .button_icon {
-    /* width: 1rem; */
-    /* height: 1rem; */
-} 
+.table_button_click {
+    background-color: #00bfff;
+}
 
 .container_table  {
   width: 100%;

@@ -10,7 +10,12 @@ const salesTable = document.querySelector("div.table_sale");
 const visitsTable = document.querySelector("div.table_visit");
 
 const tableBodyEvent = document.querySelector("tbody#table_body_event");
-const tableBodyVisit = document.querySelector("tbody#table_body_visit"); 
+const tableBodyVisit = document.querySelector("tbody#table_body_visit");
+
+// const allButtons =document.querySelectorAll("button[type='button']");
+// const eventobtn =document.querySelector("button[type='button']");
+// const vendasbtn = allButtons[1];
+// const agendamentobtn = allButtons[2];
 
 const isAdmin = sessionStorage.getItem("isAdmin");
 
@@ -103,15 +108,19 @@ window.addEventListener("load", () => {
 
 
 tableButtons.forEach((button) => {
+
     button.addEventListener("click", (event) => {
         const clickedButton = event.target;
 
         if (clickedButton.textContent !== "Eventos") {
             eventsTable.style.display = "none";
 
+            //  eventobtn.classList.add("table_button_click");
+
             if (clickedButton.textContent === "Vendas") {
                 salesTable.style.display = "block";
                 visitsTable.style.display = "none";
+
             } else {
                 visitsTable.style.display = "block";
                 salesTable.style.display = "none";
